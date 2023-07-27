@@ -1,0 +1,19 @@
+{
+  "id": "product-id",
+  "template_type": "product",
+  "style": "",
+  "template": {
+    "section_title": {
+      "style": "color:cyan",
+      "type": "text"
+    },
+    "section_details": {
+      "style": "color:red",
+      "type": "text"
+    },
+    "section_button": {
+      "style": "color:red",
+      "type": "url"
+    }
+  }
+}

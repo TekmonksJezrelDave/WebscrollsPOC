@@ -1,0 +1,78 @@
+<!-- (C) 2015 TekMonks. All rights reserved.License: MIT - see enclosed license.txt file.-->
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="expires" content="-1" />
+		<meta name="msvalidate.01" content="ED60D1BD5E43FAAA8825DF5285518A82" />
+        <link href="./img/favicon.ico" rel="icon" type="image/x-icon" />
+        <title>Webscrolls</title>
+	<style>
+		div {text-align: center;}
+		.tekmonks-logo {
+			width: auto;
+			height: 25em;
+		}
+
+		.loading-spinner {
+			width: auto;
+			height: 6em;
+		}
+
+		#loading-container {
+			visibility: hidden;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+		
+		#slow-text{
+			color: red;
+			visibility: hidden;
+		}
+	</style>
+	<script type="text/javascript" src="/framework/js/$$.js"></script>
+	<script type="text/javascript">
+		$$.boot(new URL("./", window.location));
+	</script>
+	<script type="text/javascript">
+        const loadpage = async _ => {
+			let referrer = "";
+			if (document.referrer!= "") {
+				referrer = (new URL(document.referrer)).hostname;
+			}	
+			
+			if (referrer != window.location.hostname) {
+				setTimeout(function(){
+				document.getElementsByTagName("div")[0].removeAttribute("class");
+				}, 4);
+			}
+		}
+		loadpage ();
+    </script>
+    </head>
+
+    <body>
+	<div class="loading" id="loading-container">
+		<img class="loading-spinner" id="loading-spinner" src="./img/loading_spinner.svg"></img>
+		<div id="slow-text">Slow network or error loading</div>
+	</div>	
+	<script type="text/javascript">
+		const SPINNER_WAIT_TIMEOUT = 750;
+		document.addEventListener("DOMContentLoaded", _=>setTimeout(_=> {
+			const loader = document.querySelector("#loading-container");
+			if (loader) loader.style.visibility="visible"	
+		}, SPINNER_WAIT_TIMEOUT));
+		
+		const ERROR_SPINNER_WAIT_TIMEOUT = 10000;
+		document.addEventListener("DOMContentLoaded", _=>setTimeout(_=> {
+			const slowText = document.querySelector("#slow-text");
+			if (slowText) slowText.style.visibility="visible"
+		}, ERROR_SPINNER_WAIT_TIMEOUT));
+	</script>
+    </body>
+</html>

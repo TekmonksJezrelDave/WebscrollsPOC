@@ -1,0 +1,27 @@
+{
+    "template_type": "home",
+    "header-img": {
+        "src":"{{{CMS_ROOT_URL}}}/home/api400-banner.png",
+        "alt": "Header Image"
+    },
+    "featured-heading": "Featured Product",
+    "aboutus-heading": "About Us",
+    "aboutus-details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "vertical-heading": "Verticals",
+    "teleworkr-details": "TeleWorkr",
+    "teleworkr-image": {
+       "alt": "Image",
+       "src": "https://placehold.co/100/144887/white?text=Image+Sample"
+    },
+    "teledoctr-details": "TeleDoctr",
+    "teledoctr-image": {
+        "alt": "Image",
+        "src": "https://placehold.co/100/144887/white?text=Image+Sample"
+     },
+    "telescholr-details": "TeleScholr",
+    "telescholr-image": {
+        "alt": "Image",
+        "src": "https://placehold.co/100/144887/white?text=Image+Sample"
+     }
+}
+

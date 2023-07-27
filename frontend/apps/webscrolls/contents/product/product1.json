@@ -1,0 +1,10 @@
+{
+    "product_id": "product-id",
+    "template_type": "product",
+    "section_title": "PRODUCT 1",
+    "section_details": "This is the product 1 page",
+    "section_button": {
+        "url": "{{#makeLink}}./home.html?content_path=home/home.json{{/makeLink}}",
+        "value": "Home"
+    }
+}

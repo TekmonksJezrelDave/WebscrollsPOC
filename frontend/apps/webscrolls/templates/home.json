@@ -1,0 +1,65 @@
+{
+  "template_type": "home",
+  "css_path": "home.css",
+  "style": "",
+  "template": {
+    "header-img": {
+      "style": "",
+      "type": "img"
+    },
+    "featured-heading": {
+      "style": "",
+      "type":"text"
+    },
+    "featured-products": {
+      "style": "",
+      "template": {
+        "teleworkr-container": {
+          "style": "",
+          "template": {
+            "teleworkr-image": { 
+              "type": "img"
+            },
+            "teleworkr-details": {
+              "type": "text"
+            }
+          }
+        },
+        "teledoctr-container": {
+          "style": "",
+          "template": {
+            "teledoctr-image": {
+              "type": "img"
+            },
+            "teledoctr-details": {
+              "type": "text"
+            }
+          }
+        },
+        "telescholr-container": {
+          "style": "",
+          "template": {
+            "telescholr-image": {
+              "type": "img"
+            },
+            "telescholr-details": {
+              "type": "text"
+            }
+          }
+        }
+      }
+    },
+    "aboutus-heading": {
+      "style": "",
+      "type":"text"
+    },
+    "aboutus-details": {
+      "style": "",
+      "type":"text"
+    },
+    "vertical-heading": {
+      "style": "",
+      "type":"text"
+    }
+  }
+}
