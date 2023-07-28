@@ -24,6 +24,7 @@ async function getContent(){
   
   html = `<div ${template.style ? `style="${template.style}"`:''}>${html}</div>`
   
+  //parse {{Mustached}} syntax and display final HTML to DOM
   renderedHTML = Mustache.render(html, data)
   const element = document.querySelector('body');
   element.innerHTML = renderedHTML
@@ -51,7 +52,7 @@ function parseHTML(template, content) {
         if(type == 'image' || type == 'img'){
           html += `<img class="${key}"${style != undefined ? ` style="${style}"` : ''} src="${content[key].src}" alt="${content[key].alt}">${parseHTML(value, content)}</img>`
         }else if(type == 'link' || type == 'url'){
-          html += `<a class="${key}"${style != undefined ? ` style="${style}"` : ''} href="${content[key].url}">${content[key] ? urlObject.value : parseHTML(value, content)}</a>`
+          html += `<a class="${key}"${style != undefined ? ` style="${style}"` : ''} href="${content[key].url}">${content[key].value ? content[key].value : parseHTML(value, content)}</a>`
         }else{
           html += `<div class="${key}"${style != undefined ? ` style="${style}"` : ''}>${content[key] ? content[key] : parseHTML(value, content)}</div>`
         }

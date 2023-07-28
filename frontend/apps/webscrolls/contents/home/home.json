@@ -1,5 +1,12 @@
 {
     "template_type": "home",
+    "navbar-image-container":{
+        "url": "{{#makeLink}}./home.html?content_path=home/home.json{{/makeLink}}"
+    },
+    "navbar-logo": {
+        "src":"{{{CMS_ROOT_URL}}}/logo.png",
+        "alt": "Navbar Image"
+    },
     "header-img": {
         "src":"{{{CMS_ROOT_URL}}}/home/api400-banner.png",
         "alt": "Header Image"
@@ -8,17 +15,26 @@
     "aboutus-heading": "About Us",
     "aboutus-details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "vertical-heading": "Verticals",
-    "teleworkr-details": "TeleWorkr",
+    "teleworkr-details": {
+        "url": "{{#makeLink}}./home.html?content_path=products/teleworkr/teleworkr.json{{/makeLink}}",
+        "value": "Teleworkr"
+    },
     "teleworkr-image": {
        "alt": "Image",
        "src": "https://placehold.co/100/144887/white?text=Image+Sample"
     },
-    "teledoctr-details": "TeleDoctr",
+    "teledoctr-details": {
+        "url": "{{#makeLink}}./home.html?content_path=products/teledoctr/teledoctr.json{{/makeLink}}",
+        "value": "TeleDoctr"
+    },
     "teledoctr-image": {
         "alt": "Image",
         "src": "https://placehold.co/100/144887/white?text=Image+Sample"
      },
-    "telescholr-details": "TeleScholr",
+     "telescholr-details": {
+        "url": "{{#makeLink}}./home.html?content_path=products/telescholr/telescholr.json{{/makeLink}}",
+        "value": "TeleScholr"
+    },
     "telescholr-image": {
         "alt": "Image",
         "src": "https://placehold.co/100/144887/white?text=Image+Sample"

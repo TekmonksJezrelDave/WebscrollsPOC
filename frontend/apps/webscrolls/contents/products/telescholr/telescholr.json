@@ -1,0 +1,19 @@
+{
+    "product_id": "product-id",
+    "template_type": "product",
+    "navbar-image-container":{
+        "url": "{{#makeLink}}./home.html?content_path=home/home.json{{/makeLink}}"
+    },
+    "navbar-logo": {
+        "src":"{{{CMS_ROOT_URL}}}/logo.png",
+        "alt": "Navbar Image"
+    },
+    "product-name": "TeleScholr",
+    "product-image": {
+        "src":  "{{{CMS_ROOT_URL}}}/products/telescholr/telescholr.png" 
+    },
+    "section_button": {
+        "url": "{{#makeLink}}./home.html?content_path=home/home.json{{/makeLink}}",
+        "value": "Home"
+    }
+}

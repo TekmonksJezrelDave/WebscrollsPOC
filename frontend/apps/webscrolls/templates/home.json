@@ -3,6 +3,19 @@
   "css_path": "home.css",
   "style": "",
   "template": {
+    "navbar-section": {
+      "style": "background-color:#ebebeb",
+      "template": {
+        "navbar-image-container": {
+          "type": "url",
+          "template": {
+            "navbar-logo":{
+              "type": "image"
+            }
+          }
+        }
+      }
+    },
     "header-img": {
       "style": "",
       "type": "img"
@@ -21,7 +34,7 @@
               "type": "img"
             },
             "teleworkr-details": {
-              "type": "text"
+              "type": "url"
             }
           }
         },
@@ -32,7 +45,7 @@
               "type": "img"
             },
             "teledoctr-details": {
-              "type": "text"
+              "type": "url"
             }
           }
         },
@@ -43,7 +56,7 @@
               "type": "img"
             },
             "telescholr-details": {
-              "type": "text"
+              "type": "url"
             }
           }
         }

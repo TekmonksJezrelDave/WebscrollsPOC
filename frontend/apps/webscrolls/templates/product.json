@@ -1,19 +1,32 @@
 {
   "id": "product-id",
+  "css_path": "product.css",
   "template_type": "product",
   "style": "",
   "template": {
-    "section_title": {
-      "style": "color:cyan",
-      "type": "text"
+    "navbar-section": {
+      "style": "background-color:#ebebeb",
+      "template": {
+        "navbar-image-container": {
+          "type": "url",
+          "template": {
+            "navbar-logo":{
+              "type": "image"
+            }
+          }
+        }
+      }
     },
-    "section_details": {
-      "style": "color:red",
-      "type": "text"
-    },
-    "section_button": {
-      "style": "color:red",
-      "type": "url"
+    "header-section": {
+      "style": "",
+      "template": {
+        "product-name": {
+          "type": "text"
+        },
+        "product-image": {
+          "type": "image"
+        }
+      } 
     }
   }
 }
