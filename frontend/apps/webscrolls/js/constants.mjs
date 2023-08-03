@@ -20,6 +20,9 @@ export const APP_CONSTANTS = {
     HOSTNAME: APP_PATH+"/conf/hostname.json",
 
     SESSION_NOTE_ID: "com_monkshu_app_mnkp",
+    
+    //API
+    API_GET_CONTENT: API_PATH+"/getContent",
 
     // Login constants
     MIN_PASS_LENGTH: 8,

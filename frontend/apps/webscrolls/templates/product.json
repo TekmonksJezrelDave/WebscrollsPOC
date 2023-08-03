@@ -3,6 +3,10 @@
   "css_path": "product.css",
   "template_type": "product",
   "style": "",
+  "menu": {
+    "Product": ["Teleworkr",  "TeleDoctr", "TeleScholr"],
+    "About Us":["Our Team","Contact"]
+  },
   "template": {
     "navbar-section": {
       "style": "background-color:#ebebeb",
@@ -14,6 +18,9 @@
               "type": "image"
             }
           }
+        },
+        "menu-container": {
+          
         }
       }
     },
@@ -27,6 +34,12 @@
           "type": "image"
         }
       } 
+    },
+    "product-title":{
+      "type": "text"
+    },
+    "description-section": {
+      "type": "text"
     }
   }
 }

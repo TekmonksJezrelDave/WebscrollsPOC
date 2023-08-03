@@ -2,6 +2,32 @@
   "template_type": "home",
   "css_path": "home.css",
   "style": "",
+  "menu": {
+    "Product": [ 
+      {
+       "name": "Teleworkr",
+       "url": "{{#makeLink}}./home.html?content_path=products/teleworkr/teleworkr.json{{/makeLink}}"
+      },
+      {
+        "name": "TeleDoctr",
+        "url": "{{#makeLink}}./home.html?content_path=products/teledoctr/teledoctr.json{{/makeLink}}"
+       },
+       {
+        "name": "TeleScholr",
+        "url": "{{#makeLink}}./home.html?content_path=products/telescholr/telescholr.json{{/makeLink}}"
+       }
+    ],
+    "About Us":[
+      {
+        "name": "Our Team",
+        "url": "{{#makeLink}}./home.html?content_path=home/home.json{{/makeLink}}"
+      },
+      {
+        "name": "Contact",
+        "url": "{{#makeLink}}./home.html?content_path=home/home.json{{/makeLink}}"
+      }
+    ]
+  },
   "template": {
     "navbar-section": {
       "style": "background-color:#ebebeb",

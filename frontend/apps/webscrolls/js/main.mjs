@@ -7,6 +7,8 @@ async function getContent(){
   let content = await(await fetch(`${APP_CONSTANTS.CMS_ROOT_URL}/${contentPath}`)).json();
   let template = await(await fetch(`${APP_CONSTANTS.TEMPLATES_ROOT_URL}/${content.template_type}.json`)).json();
   
+  //let backendContent = await(await fetch(`${APP_CONSTANTS.API_GET_CONTENT}?q=${contentPath}`)).json();
+  
   //parse HTML from content and template
   let renderedHTML
   let html = parseHTML(template, content)
@@ -24,8 +26,19 @@ async function getContent(){
   
   html = `<div ${template.style ? `style="${template.style}"`:''}>${html}</div>`
   
+  
+  let menu = createMenu(template.menu)
+  const parser = new DOMParser()
+  const htmlDoc = parser.parseFromString(html, 'text/html')
+  const menuEl = htmlDoc.createElement('ul')
+  menuEl.innerHTML = menu
+  htmlDoc.querySelector('.navbar-section').appendChild(menuEl)
+  const rootElement = htmlDoc.documentElement
+  const serializer = new XMLSerializer();
+  const rootElementString = serializer.serializeToString(rootElement);
+
   //parse {{Mustached}} syntax and display final HTML to DOM
-  renderedHTML = Mustache.render(html, data)
+  renderedHTML = Mustache.render(rootElementString, data)
   const element = document.querySelector('body');
   element.innerHTML = renderedHTML
 }
@@ -40,6 +53,7 @@ function parseHTML(template, content) {
   for (const key in template) {
     if (key == 'id') continue
     if (key == 'template_type') continue
+    if (key == 'menu') continue
 
     const value = template[key];
     const style = template[key].style;
@@ -61,6 +75,24 @@ function parseHTML(template, content) {
   }
   
   return html;
+}
+
+function createMenu(menuData) {
+  let menuHTML = '';
+
+  for (let mainMenuItem in menuData) {
+    if (menuData.hasOwnProperty(mainMenuItem)) {
+      menuHTML += '<li>' + mainMenuItem + '<ul>';
+      const subMenuItems = menuData[mainMenuItem];
+      for (let i = 0; i < subMenuItems.length; i++) {
+        menuHTML += `<li><a href="${subMenuItems[i].url}">` + subMenuItems[i].name + '</a></li>';
+      }
+      menuHTML += '</ul></li>';
+    }
+  }
+
+  menuHTML;
+  return menuHTML;
 }
 
 export const main = {getContent}
