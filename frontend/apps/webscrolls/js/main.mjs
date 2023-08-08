@@ -4,10 +4,10 @@ async function getContent(){
   
   //get content and template
   let contentPath = new URL(router.getCurrentURL()).searchParams.get("content_path") || 'home/home.json'
-  let content = await(await fetch(`${APP_CONSTANTS.CMS_ROOT_URL}/${contentPath}`)).json();
-  let template = await(await fetch(`${APP_CONSTANTS.TEMPLATES_ROOT_URL}/${content.template_type}.json`)).json();
-  
-  //let backendContent = await(await fetch(`${APP_CONSTANTS.API_GET_CONTENT}?q=${contentPath}`)).json();
+  //let content = await(await fetch(`${APP_CONSTANTS.CMS_ROOT_URL}/${contentPath}`)).json();
+  let content = await(await fetch(`${APP_CONSTANTS.API_GET_CONTENT}?q=${contentPath}`)).json();
+  //let template = await(await fetch(`${APP_CONSTANTS.TEMPLATES_ROOT_URL}/${content.template_type}.json`)).json();
+  const template = await(await fetch(`${APP_CONSTANTS.API_GET_TEMPLATE}?q=${content.template_type}.json`)).json();
   
   //parse HTML from content and template
   let renderedHTML
@@ -26,7 +26,7 @@ async function getContent(){
   
   html = `<div ${template.style ? `style="${template.style}"`:''}>${html}</div>`
   
-  
+  //create menu
   let menu = createMenu(template.menu)
   const parser = new DOMParser()
   const htmlDoc = parser.parseFromString(html, 'text/html')

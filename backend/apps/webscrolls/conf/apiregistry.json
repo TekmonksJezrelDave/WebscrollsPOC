@@ -1,3 +1,4 @@
 {
-    "/apps/webscrolls/getContent" : "/apis/getContent.js?get=true"
+    "/apps/webscrolls/getContent" : "/apis/getContent.js?get=true",
+    "/apps/webscrolls/getTemplate" : "/apis/getTemplate.js?get=true"
 }

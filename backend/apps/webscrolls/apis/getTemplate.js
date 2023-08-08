@@ -6,11 +6,11 @@ const readFile = require("util").promisify(require("fs").readFile)
 
 exports.doService = async jsonReq => {
 	if (!validateRequest(jsonReq)) {LOG.error("Validation failure."); return CONSTANTS.FALSE_RESULT;}
-   
-    let contentPath = path.resolve(`${API_CONSTANTS.CONTENT_ROOT}/${jsonReq.q}`);
+    
+    let templatePath = path.resolve(`${API_CONSTANTS.TEMPLATE_ROOT}/${jsonReq.q}`);
 	
     try {
-        const fileContent = await readFile(contentPath, 'utf8');
+        const fileContent = await readFile(templatePath, 'utf8');
         const parsedContent = JSON.parse(fileContent);
         return parsedContent;
     } catch (err) {

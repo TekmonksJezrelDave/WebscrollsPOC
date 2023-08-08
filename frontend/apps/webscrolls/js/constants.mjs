@@ -23,6 +23,7 @@ export const APP_CONSTANTS = {
     
     //API
     API_GET_CONTENT: API_PATH+"/getContent",
+    API_GET_TEMPLATE: API_PATH+"/getTemplate",
 
     // Login constants
     MIN_PASS_LENGTH: 8,
