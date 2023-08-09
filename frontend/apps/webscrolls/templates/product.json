@@ -4,8 +4,30 @@
   "template_type": "product",
   "style": "",
   "menu": {
-    "Product": ["Teleworkr",  "TeleDoctr", "TeleScholr"],
-    "About Us":["Our Team","Contact"]
+    "Product": [ 
+      {
+       "name": "Teleworkr",
+       "url": "{{#makeLink}}./home.html?content_path=products/teleworkr/teleworkr.json{{/makeLink}}"
+      },
+      {
+        "name": "TeleDoctr",
+        "url": "{{#makeLink}}./home.html?content_path=products/teledoctr/teledoctr.json{{/makeLink}}"
+       },
+       {
+        "name": "TeleScholr",
+        "url": "{{#makeLink}}./home.html?content_path=products/telescholr/telescholr.json{{/makeLink}}"
+       }
+    ],
+    "About Us":[
+      {
+        "name": "Our Team",
+        "url": "{{#makeLink}}./home.html?content_path=home/home.json{{/makeLink}}"
+      },
+      {
+        "name": "Contact",
+        "url": "{{#makeLink}}./home.html?content_path=home/home.json{{/makeLink}}"
+      }
+    ]
   },
   "template": {
     "navbar-section": {

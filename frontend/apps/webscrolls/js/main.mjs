@@ -2,11 +2,9 @@ import {router} from "/framework/js/router.mjs";
 
 async function getContent(){
   
-  //get content and template
+  //get content and template using backend API
   let contentPath = new URL(router.getCurrentURL()).searchParams.get("content_path") || 'home/home.json'
-  //let content = await(await fetch(`${APP_CONSTANTS.CMS_ROOT_URL}/${contentPath}`)).json();
-  let content = await(await fetch(`${APP_CONSTANTS.API_GET_CONTENT}?q=${contentPath}`)).json();
-  //let template = await(await fetch(`${APP_CONSTANTS.TEMPLATES_ROOT_URL}/${content.template_type}.json`)).json();
+  const content = await(await fetch(`${APP_CONSTANTS.API_GET_CONTENT}?q=${contentPath}`)).json();
   const template = await(await fetch(`${APP_CONSTANTS.API_GET_TEMPLATE}?q=${content.template_type}.json`)).json();
   
   //parse HTML from content and template
@@ -28,14 +26,7 @@ async function getContent(){
   
   //create menu
   let menu = createMenu(template.menu)
-  const parser = new DOMParser()
-  const htmlDoc = parser.parseFromString(html, 'text/html')
-  const menuEl = htmlDoc.createElement('ul')
-  menuEl.innerHTML = menu
-  htmlDoc.querySelector('.navbar-section').appendChild(menuEl)
-  const rootElement = htmlDoc.documentElement
-  const serializer = new XMLSerializer();
-  const rootElementString = serializer.serializeToString(rootElement);
+  let rootElementString = appendMenu(html, menu)
 
   //parse {{Mustached}} syntax and display final HTML to DOM
   renderedHTML = Mustache.render(rootElementString, data)
@@ -93,6 +84,19 @@ function createMenu(menuData) {
 
   menuHTML;
   return menuHTML;
+}
+
+function appendMenu(html, menu){
+  const parser = new DOMParser()
+  const htmlDoc = parser.parseFromString(html, 'text/html')
+  const menuEl = htmlDoc.createElement('ul')
+  menuEl.innerHTML = menu
+  htmlDoc.querySelector('.navbar-section').appendChild(menuEl)
+  const rootElement = htmlDoc.documentElement
+  const serializer = new XMLSerializer();
+  const rootElementString = serializer.serializeToString(rootElement);
+  
+  return rootElementString
 }
 
 export const main = {getContent}
